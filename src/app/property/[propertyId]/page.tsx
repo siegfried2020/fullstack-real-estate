@@ -8,7 +8,7 @@ import { LuBath, LuBedDouble } from "react-icons/lu";
 export default function PropertyPage() {
     return (
         <FrontendLayout>
-            <Navbar variant="solid"></Navbar>
+            <Navbar variant="solid"/>
             <section className="py-15">
                 
                 <div className="mx-auto max-w-7xl px-6 lg:px-12">

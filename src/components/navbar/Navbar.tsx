@@ -5,6 +5,8 @@ import { FaHome } from "react-icons/fa"
 import { IoClose } from "react-icons/io5"
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
 import { useState } from "react"
+import { useAuthModal } from "@/store/useAuthModalStore"
+import { useCreatePropertyModalStore } from "@/store/useCreatePropertyModalStore"
 
 interface NavbarProps{
     variant:"transparent" | "solid"
@@ -15,7 +17,10 @@ export const navLinks=["Home", "properties", "marketplace", ]
 
 export default function Navbar({variant = "transparent"}:NavbarProps){
     const [isOpen, setIsOpen] =useState(false)
-    const isTransparent = variant === "transparent"
+    const {openLogin} = useAuthModal();
+    const {open:openCreateModal}=useCreatePropertyModalStore()
+
+    const isTransparent = variant === "transparent";
     return(
         <section className={`top-0 left-0 z-50 w-full
             ${isTransparent ? "absolute" : "sticky border-b border-black/5 bg-card"}`}>
@@ -44,8 +49,8 @@ export default function Navbar({variant = "transparent"}:NavbarProps){
 
                     {/* desktop buttons */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <Button variant="outline">login</Button>
-                        <Button icon={<FaHome/>} variant="outline">Add Property</Button>
+                        <Button variant="outline" onClick={openLogin}>login</Button>
+                        <Button icon={<FaHome/>} onClick={openCreateModal} variant="outline">Add Property</Button>
                     </div>
 
                     {/* mobile menu button */}
@@ -72,8 +77,8 @@ export default function Navbar({variant = "transparent"}:NavbarProps){
                                 </Link>
                                 ))}
                                 <div className="flex flex-col gap-3 mt-4">
-                                    <Button variant="outline">login</Button>
-                                    <Button icon={<FaHome/>} variant="outline">Add Property</Button>
+                                    <Button variant="outline" onClick={openLogin}>login</Button>
+                                    <Button icon={<FaHome/>} onClick={openCreateModal} variant="outline">Add Property</Button>
                                 </div>
                             </div>
                         

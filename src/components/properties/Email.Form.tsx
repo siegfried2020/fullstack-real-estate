@@ -13,7 +13,7 @@ interface InputValues {
 }
 
 export default function EmailForm() {
-    const [values, setValues] = useState({
+    const [values, setValues] = useState<InputValues>({
         email:"",
         name:"",
         phone:"",

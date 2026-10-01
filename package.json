@@ -6,14 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postinstall": "prisma skills sync || exit 0"
   },
   "dependencies": {
+    "@prisma/adapter-neon": "^7.10.0",
+    "@prisma/client": "^7.10.0",
     "clsx": "^2.1.1",
+    "dotenv": "^18.0.4",
     "next": "16.3.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "react-icons": "^5.7.0"
+    "react-icons": "^5.7.0",
+    "zustand": "^5.0.15"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -23,7 +28,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "prisma": "8.0.0-rc.19"
   },
   "packageManager": "pnpm@11.23.0"
 }
